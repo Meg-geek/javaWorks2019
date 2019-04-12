@@ -1,0 +1,78 @@
+package com.company;
+import java.io.*;
+
+public class WordTextParser implements WordParser {
+    private File inputFile;
+    private Reader reader;
+    public WordTextParser(String inputFileName){
+        try{
+            inputFile = new File(inputFileName);
+           // reader = new BufferedReader(new FileReader((inputFile, "UTF-16")));
+            reader = new InputStreamReader(new FileInputStream(inputFile));
+            line = reader.readLine();
+        } catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    public String getWord(){
+        String nextWord = getNextWord();
+        if (nextWord != null)
+            return nextWord;
+        //если конец файла
+        try {
+            reader.close();
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+        return null;}
+     private String getNextWord(){
+        int endFlag = setPositionAndLine();
+        if (endFlag == 1)
+            return null;
+        int endPosition = -1;
+        for(int i = position; i < line.length() && endPosition == -1; i++){
+            char letter = line.charAt(i);
+            if ( !Character.isLetterOrDigit(letter)){
+                endPosition = i;
+                if (position == endPosition){
+                    position++;
+                    endPosition = -1;
+                }
+            }
+        }
+        if (endPosition == -1)
+            endPosition = line.length() - 1;
+        if (position >= line.length())
+            return null;
+        String word;// = line.substring(position, endPosition);
+        if (position != endPosition && endPosition != line.length() - 1)
+            word = line.substring(position, endPosition);
+        else
+            word = line.substring(position);
+         position = endPosition + 1;
+        if (word.length() > 0)
+            return word;
+        return null;
+     }
+     /*
+     *устанавливает новую позицию, если предыдущая строка считана, и читает новую строку
+     * returns 1 if it's the end of the file
+     * 0 if we can explore the line
+     * */
+     private int setPositionAndLine(){
+         if (position >= line.length()){
+             try{
+                 line = reader.readLine();
+                 while (line == "" && line != null)
+                     line = reader.readLine();
+             }catch(IOException ex){
+                 ex.printStackTrace();
+             }
+             position = 0;
+         }
+         if (line == null)
+             return 1;
+         return 0;
+     }
+}
+
