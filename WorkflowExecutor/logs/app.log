@@ -1,0 +1,18 @@
+[INFO ] 2019-03-22 13:49:51.738 [main] Main - main() - start
+[INFO ] 2019-03-22 13:49:51.774 [main] Main - start the workflow with the test.txt
+[INFO ] 2019-03-22 13:49:51.779 [main] BlockFactory - getInstance() - enter
+[INFO ] 2019-03-22 13:49:51.782 [main] BlockFactory - create a class readfile
+[INFO ] 2019-03-22 13:49:51.785 [main] ReadBlock - ReadBlock parameters are set
+[INFO ] 2019-03-22 13:49:51.785 [main] BlockFactory - getInstance() - enter
+[INFO ] 2019-03-22 13:49:51.786 [main] BlockFactory - create a class writefile
+[INFO ] 2019-03-22 13:49:51.787 [main] WriteBlock - WriteBlock parameters are set
+[INFO ] 2019-03-22 13:49:51.787 [main] BlockFactory - getInstance() - enter
+[INFO ] 2019-03-22 13:49:51.788 [main] BlockFactory - create a class sort
+[INFO ] 2019-03-22 13:49:51.789 [main] BlockFactory - getInstance() - enter
+[INFO ] 2019-03-22 13:49:51.790 [main] BlockFactory - create a class replace
+[INFO ] 2019-03-22 13:49:51.791 [main] ReplaceBlock - ReplaceBlock parameters are set
+[INFO ] 2019-03-22 13:49:51.791 [main] ReadBlock - Read block successfully executed
+[INFO ] 2019-03-22 13:49:51.792 [main] SortBlock - Sort block successfully executed
+[INFO ] 2019-03-22 13:49:51.792 [main] ReplaceBlock - Replace block successfully executed
+[INFO ] 2019-03-22 13:49:51.792 [main] SortBlock - Sort block successfully executed
+[INFO ] 2019-03-22 13:49:51.795 [main] WriteBlock - Write block successfully executed
